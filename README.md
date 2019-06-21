@@ -2,12 +2,15 @@
 
 
 **Run:** `python train.py --(args)`
+
 처음에 한번 돌리시면 `data/glove`, `data/news20` 디렉토리가 생성되고 종료됩니다.
 
 
 ## Dataset
 
-**20 Newsgroup Dataset** 에 속한 문서들에 대해 multi-class classification을 진행합니다. (데이터셋에 대한 설명: [scikit-learn link](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html#newsgroups) 참고) 
+**20 Newsgroup Dataset** 에 속한 문서들에 대해 multi-class classification을 진행합니다. 
+
+(데이터셋에 대한 설명: [scikit-learn link](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html#newsgroups) 참고) 
 
 원래 데이터셋은 클래스가 20개지만, 우리는 4개의 클래스만 추출하여 진행합니다. 사용하는 클래스는 `sci` 계열에 속한 주제들입니다.
 
@@ -24,7 +27,7 @@
 
 Vocabulary로는 [pretrained glove](https://nlp.stanford.edu/projects/glove/) 중 Wikipedia 2014 + Gigaword 5에 대해서 학습된 glove.6B.100d.txt에 있는 단어들을 사용하겠습니다. 원래 vocab은 400K개지만, 우리는 top 50K만 추출하여 진행합니다. + PAD, UNK  토큰을 두어서, vocab size=50,002가 됩니다. 
 
-**주의 사항.** 현재 코드에는 glove에 있는 단어의 *목록* 만 사용하고, pretrained weights는 사용하지 않습니다.
+**주의 사항.** 현재 코드에는 glove에 있는 단어의 목록만 사용하고, pretrained weights는 사용하지 않습니다.
 
 **할 일.** glove.6B.100d.txt 를 구하셔서  `data/glove` 폴더 아래에 집어넣어 주시면 됩니다.
 
@@ -59,7 +62,7 @@ Yang et al. (2016). Hierarchical Attention Networks for Document Classification 
 
 
 
-——— 여기까지 제대로 수정하셨다면, 3 epoch이 지난 후 test time accuracy가 0.5 이상 나옵니다.
+——— **여기까지 제대로 수정하셨다면, 3 epoch이 지난 후 test time accuracy가 0.5 이상 나옵니다.**
 
 
 ### 3. (1pt) Pretrained embedding 적용하고 fine-tune될 수 있도록 하기
